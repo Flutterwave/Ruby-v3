@@ -4,11 +4,7 @@
 
 # Flutterwave v3 Ruby Library
 
-This is a Ruby gem for easy integration of Flutterwave V3 API for various applications written in Ruby language from [Flutterwave](https://rave.flutterwave.com/)
-
-# V3 Documentation
-
-See [Here](https://developer.flutterwave.com/reference) for Flutterwave V3 API Docs.
+This is a Ruby gem for easy integration of Flutterwave V3 API for various applications written in Ruby language from [Flutterwave](https://rave.flutterwave.com/). See [Here](https://developer.flutterwave.com/reference) for Flutterwave V3 API Docs.
 
 ## Installation
 
