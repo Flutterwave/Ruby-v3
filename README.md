@@ -1,4 +1,8 @@
-# Flutterwave V3 SDK
+<p align="center">
+    <img title="Flutterwave" height="200" src="https://flutterwave.com/images/logo-colored.svg" width="50%"/>
+</p>
+
+# Flutterwave v3 Ruby Library
 
 This is a Ruby gem for easy integration of Flutterwave V3 API for various applications written in Ruby language from [Flutterwave](https://rave.flutterwave.com/)
 
