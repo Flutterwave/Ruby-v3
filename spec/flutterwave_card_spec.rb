@@ -1,9 +1,9 @@
 require 'spec_helper'
 require "flutterwave_sdk/flutterwave_objects/card"
 
-test_public_key = "FLWPUBK-348ea9a0fef6ec91be8c3d323350f7fd-X" 
-test_secret_key = "FLWSECK-611d0eda25a3fdf506137831019c9197-X"
-test_encryption_key = "611d0eda25a3c931863d92c4"
+test_public_key = "FLWPUBK-xxxxxxxxxxxxxxxxxxxxx-X" 
+test_secret_key = "FLWSECK-xxxxxxxxxxxxxxxxxxxxx-X"
+test_encryption_key = "xxxxxxxxxxxxxxxxxxxxx"
 
 
 payload = {
