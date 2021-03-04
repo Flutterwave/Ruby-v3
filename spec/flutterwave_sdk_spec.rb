@@ -2,7 +2,7 @@ require 'spec_helper'
 
 test_public_key = "FLWPUBK-xxxxxxxxxxxxxxxxxxxxx-X" 
 test_secret_key = "FLWSECK-xxxxxxxxxxxxxxxxxxxxx-X"
-test_encryption_key = "611d0eda25a3c931863d92c4"
+test_encryption_key = "xxxxxxxxxxxxxxxxxxxxx"
 
 invalid_test_public_key = "xxxxxxxxxxxxxxxxxxxxx-X" 
 invalid_test_secret_key = "xxxxxxxxxxxxxxxxxxxxx-X"
