@@ -42,6 +42,7 @@ class MobileMoney < Base
 
     # mthod to verify transaction
     def verify_charge(id)
+        base_url = flutterwave_object.base_url
 
         response = get_request("#{base_url}/transactions/#{id}/verify")
         return response

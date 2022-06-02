@@ -17,7 +17,7 @@ class AccountPayment < Base
         elsif currency  == "GBP"
             required_parameters =  [ "amount", "email", "account_bank", "account_number", "tx_ref", "currency"]
             type = "debit_uk_account"
-        elsif currency == "USD" || "ZAR"
+        elsif currency == "USD" || currency == "ZAR"
             required_parameters = [ "amount", "email", "country", "tx_ref", "currency"]
             type = "ach_payment"
         else
@@ -49,7 +49,7 @@ class AccountPayment < Base
     def verify_charge(id)
         base_url = flutterwave_object.base_url
 
-        response = get_request("#{base_url}}/transactions/#{id}/verify")
+        response = get_request("#{base_url}/transactions/#{id}/verify")
         return response
     end
 end

@@ -7,6 +7,8 @@
 /spec/reports/
 /tmp/
 
+.env
+
 # rspec failure tracking
 .rspec_status
 charge_test.rb
@@ -30,3 +32,5 @@ otp_test.rb
 virtual_account_number_test.rb
 bills_test.rb
 preauth_test.rb
+rspec_results.html
+flutterwave_sdk-0.1.0.gem

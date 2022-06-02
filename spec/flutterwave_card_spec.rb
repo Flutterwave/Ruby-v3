@@ -1,9 +1,12 @@
+require 'dotenv'
 require 'spec_helper'
 require "flutterwave_sdk/flutterwave_objects/card"
 
-test_public_key = "FLWPUBK-xxxxxxxxxxxxxxxxxxxxx-X" 
-test_secret_key = "FLWSECK-xxxxxxxxxxxxxxxxxxxxx-X"
-test_encryption_key = "xxxxxxxxxxxxxxxxxxxxx"
+Dotenv.load
+
+test_public_key = ENV['TEST_PUBLIC_KEY']
+test_secret_key = ENV['TEST_SECRET_KEY']
+test_encryption_key = ENV['TEST_ENCRYPTION_KEY']
 
 
 payload = {
@@ -14,9 +17,9 @@ payload = {
     "expiry_year" => "22",
     "currency" => "NGN",
     "amount" => "10",
-    "email" => "ifunanyaikemma@gmail.com",
+    "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-3243e-if-12",
+    "tx_ref" => "Sample_RBRef218",
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c"
 }
 
@@ -28,9 +31,9 @@ pin_payload =   {
     "expiry_year" => "22",
     "currency" => "NGN",
     "amount" => "10",
-    "email" => "ifunanyaikemma@gmail.com",
+    "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-3243e-if-12",
+    "tx_ref" => "Sample_RBRef015",
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c",
     "authorization": {
     "mode": "pin",
@@ -46,15 +49,16 @@ incomplete_card_payload = {
     "expiry_year" => "22",
     "currency" => "NGN",
     "amount" => "10",
-    "email" => "ifunanyaikemma@gmail.com",
+    "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-3243e-if-12",
+    "tx_ref" => "MC-3243e-if-16",
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c"
 }
 
-Rspec.describe Card do
+RSpec.describe Card do
     flutterwave = Flutterwave.new(test_public_key, test_secret_key, test_encryption_key)
     card = Card.new(flutterwave)
+    pin_charge = card.initiate_charge(pin_payload)
 
     context "when a merchant tries to charge a customers card" do
         it "should return a card object" do
@@ -75,19 +79,17 @@ Rspec.describe Card do
           end
 
           it 'should successfully charge card with suggested auth PIN' do
-            second_payload_response = card.initiate_charge(pin_payload)
+            second_payload_response = pin_charge
             expect(second_payload_response["data"]["status"]).to eq("pending")
           end
 
           it 'should return chargeResponseCode 00 after successfully validating with flwRef and OTP' do
-            card_initiate_response = card.initiate_charge(pin_payload)
-            card_validate_response = card.validate_charge(card_initiate_response["data"]["flw_ref"], "12345")
+            card_validate_response = card.validate_charge(pin_charge["data"]["flw_ref"], "12345")
             expect(card_validate_response["data"]["processor_response"]).to eq("successful")
           end
 
           it 'should return chargecode 00 after successfully verifying a card transaction with txRef' do
-            card_initiate_response = card.initiate_charge(pin_payload)
-            card_validate_response = card.validate_charge(card_initiate_response["data"]["flw_ref"], "12345")
+            card_validate_response = card.validate_charge(pin_charge["data"]["flw_ref"], "12345")
             card_verify_response = card.verify_charge(card_validate_response["data"]["id"])
             expect(card_verify_response["data"]["processor_response"]).to eq("successful")
           end

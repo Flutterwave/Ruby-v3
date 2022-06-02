@@ -3,13 +3,13 @@ require_relative 'lib/flutterwave_sdk/version'
 Gem::Specification.new do |spec|
   spec.name          = "flutterwave_sdk"
   spec.version       = FlutterwaveSdk::VERSION
-  spec.authors       = ["Ifunanya Ikemma"]
-  spec.email         = ["ifavour902@gmail.com"]
+  spec.authors       = ["Flutterwave Developers"]
+  spec.email         = ["developers@flutterwavego.com"]
 
 spec.date        = '2020-05-10'
-  spec.summary       = %q{Ruby Gem For Rave Payments By Flutterwave.}
-  spec.description   = %q{This is the official Ruby Gem For Rave Payments which includes Card, Account, Transfer, Subaccount, Subscription, Mpesa, Ghana Mobile Money, Ussd, Payment Plans, and Transfer payment methods.}
-  spec.homepage      = "https://github.com/Iphytech/Flutterwave-Ruby-SDK."
+  spec.summary       = %q{Official Ruby Gem For Flutterwave APIs.}
+  spec.description   = %q{This is the official Ruby Gem For Flutterwave Payments which includes Card, Account, Transfer, Subaccount, Subscription, Mpesa, Ghana Mobile Money, Ussd, Payment Plans, and Transfer payment methods.}
+  spec.homepage      = "https://github.com/Flutterwave/Flutterwave-Ruby-v3."
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
