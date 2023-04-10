@@ -7,7 +7,7 @@ Thank you for taking the time to contribute to our library🙌🏾.
 In this section, we detail everything you need to know about contributing to this library.
 
 
-**[Code of Conduct](https://github.com/probot/template/blob/master/CODE_OF_CONDUCT.md)**
+**[Code of Conduct](CODE_OF_CONDUCT.md)**
 
 ## **I don't want to contribute, I have a question**
 
