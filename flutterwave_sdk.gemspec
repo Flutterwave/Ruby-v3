@@ -32,5 +32,5 @@ spec.date        = '2020-05-10'
 
   # Dependencies
   spec.required_ruby_version = ">= 2.5.3"
-  spec.add_runtime_dependency 'httparty', '~> 0.16.3'
+  spec.add_runtime_dependency 'httparty', '>= 0.16.3', '< 0.22.0'
 end
