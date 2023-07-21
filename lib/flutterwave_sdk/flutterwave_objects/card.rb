@@ -3,12 +3,12 @@ require 'json'
 
 class Card < CardBase
 
-    # method to initiate card charge 
+    # method to initiate card charge
     def initiate_charge(data)
         base_url = flutterwave_object.base_url
         encryption_key = flutterwave_object.encryption_key
         public_key = flutterwave_object.public_key
-        
+
         # only update the payload with the transaction reference if it isn't already added to the payload
         if !data.key?("tx_ref")
             data.merge!({"tx_ref" => Util.transaction_reference_generator})
@@ -29,13 +29,13 @@ class Card < CardBase
         type = "card"
         payload = payload.to_json
 
-        response = post_request("#{base_url}#{BASE_ENDPOINTS::CHARGE_ENDPOINT}?type=#{type}", payload) 
- 
+        response = post_request("#{base_url}#{BASE_ENDPOINTS::CHARGE_ENDPOINT}?type=#{type}", payload)
+
         return response
 
     end
 
-    def validate_charge(flw_ref, otp)        
+    def validate_charge(flw_ref, otp)
         base_url = flutterwave_object.base_url
         payload = {
             "otp" => otp,

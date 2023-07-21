@@ -1,0 +1,65 @@
+name: Publish changes to Rubygems
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  check-readme-and-changelog:
+    runs-on: ubuntu-latest
+    env:
+      OS: ubuntu-latest
+      ruby-version: "3.1"
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: check for changes in readme and changelog files
+        run: |
+          if ! git diff --quiet HEAD~ HEAD -- README.md CHANGELOG.md; then
+            echo "README and/or CHANGELOG have been modified. Proceeding with deployment."
+          else
+            echo "README and/or CHANGELOG have not been modified. Terminating deployment."
+            exit 1
+          fi
+
+      - name: push build status to Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
+
+  publish:
+    needs: check-readme-and-changelog
+    runs-on: ubuntu-latest
+    env:
+      OS: ubuntu-latest
+      ruby-version: "3.1"
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup ruby environment
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+
+      - name: install ruby dependencies
+        run: bundle install
+
+      - name: Publish gems to Rubygems
+        env:
+          GEM_HOST_API_KEY: ${{secrets.GEM_HOST_API_KEY}}
+        run: gem push gems/*.gem
+
+      - name: push build status to Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

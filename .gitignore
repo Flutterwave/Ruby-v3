@@ -8,6 +8,9 @@
 /tmp/
 
 .env
+/sample_code
+sample_code/
+sample_code
 
 # rspec failure tracking
 .rspec_status

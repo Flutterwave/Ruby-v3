@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1] - 2023-07-20
+### Added
+- Test suite for mobile money TZS transactions.
+- Workflow scripts for review and publish
+
+### Fixed
+- Fix test suite for card.
+
+
 ## [0.1.1] - 2022-06-02
 ### Added
 - Test suite for mobile money transactions.

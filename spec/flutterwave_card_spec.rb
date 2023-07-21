@@ -11,29 +11,29 @@ test_encryption_key = ENV['TEST_ENCRYPTION_KEY']
 
 payload = {
     "type" => "card",
-    "card_number" => "5531886652142950",
-    "cvv" => "564",
+    "card_number" => "4187427415564246",
+    "cvv" => "828",
     "expiry_month" => "09",
-    "expiry_year" => "22",
+    "expiry_year" => "32",
     "currency" => "NGN",
     "amount" => "10",
     "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "Sample_RBRef218",
+    "tx_ref" => "MC-" + Date.today.to_s,
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c"
 }
 
-pin_payload =   {    
+pin_payload =   {
     "type" => "card",
-    "card_number" => "5531886652142950",
-    "cvv" => "564",
+    "card_number" => "4187427415564246",
+    "cvv" => "828",
     "expiry_month" => "09",
-    "expiry_year" => "22",
+    "expiry_year" => "32",
     "currency" => "NGN",
     "amount" => "10",
     "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "Sample_RBRef015",
+    "tx_ref" => "MC-" + Date.today.to_s,
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c",
     "authorization": {
     "mode": "pin",
@@ -46,12 +46,12 @@ incomplete_card_payload = {
     # "card_number" => "5531886652142950",
     "cvv" => "564",
     "expiry_month" => "09",
-    "expiry_year" => "22",
+    "expiry_year" => "32",
     "currency" => "NGN",
     "amount" => "10",
     "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-3243e-if-16",
+    "tx_ref" => "MC-" + Date.today.to_s,
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c"
 }
 
