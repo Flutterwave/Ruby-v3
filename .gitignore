@@ -11,6 +11,8 @@
 /sample_code
 sample_code/
 sample_code
+.DS_Store
+
 
 # rspec failure tracking
 .rspec_status
@@ -37,3 +39,4 @@ bills_test.rb
 preauth_test.rb
 rspec_results.html
 flutterwave_sdk-0.1.0.gem
+.DS_Store
