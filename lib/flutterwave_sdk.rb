@@ -26,6 +26,7 @@ require_relative "flutterwave_sdk/flutterwave_objects/bills"
 require_relative "flutterwave_sdk/flutterwave_objects/preauthorise"
 require_relative "flutterwave_sdk/flutterwave_objects/enaira"
 require_relative "flutterwave_sdk/flutterwave_objects/apple_payment"
+require_relative "flutterwave_sdk/flutterwave_objects/fawry_payment"
 require_relative "flutterwave_sdk/error"
 
 class Flutterwave
