@@ -3,6 +3,7 @@ require_relative "flutterwave_sdk/flutterwave_modules/base_endpoints"
 require_relative "flutterwave_sdk/flutterwave_objects/base/base"
 require_relative "flutterwave_sdk/flutterwave_modules/util"
 require_relative "flutterwave_sdk/flutterwave_objects/card"
+require_relative "flutterwave_sdk/flutterwave_objects/uk_and_eu_account"
 require_relative "flutterwave_sdk/flutterwave_objects/mobile_money"
 require_relative "flutterwave_sdk/flutterwave_objects/account_payment"
 require_relative "flutterwave_sdk/flutterwave_objects/bank_transfer"
@@ -23,6 +24,10 @@ require_relative "flutterwave_sdk/flutterwave_objects/otp"
 require_relative "flutterwave_sdk/flutterwave_objects/virtual_account_number"
 require_relative "flutterwave_sdk/flutterwave_objects/bills"
 require_relative "flutterwave_sdk/flutterwave_objects/preauthorise"
+require_relative "flutterwave_sdk/flutterwave_objects/enaira"
+require_relative "flutterwave_sdk/flutterwave_objects/apple_payment"
+require_relative "flutterwave_sdk/flutterwave_objects/fawry_payment"
+require_relative "flutterwave_sdk/flutterwave_objects/google_payment"
 require_relative "flutterwave_sdk/error"
 
 class Flutterwave
@@ -52,7 +57,7 @@ class Flutterwave
    # check if we set our public , secret  and encryption keys to the environment variable
    if (public_key.nil?)
     @public_key = ENV['FLUTTERWAVE_PUBLIC_KEY']
-   else 
+   else
     @public_key = public_key
    end
 
@@ -77,7 +82,7 @@ class Flutterwave
   unless @public_key[0..7] == 'FLWPUBK-' || @public_key[0..11] == 'FLWPUBK_TEST'
     raise FlutterwaveBadKeyError, "Invalid public key #{@public_key}"
   end
-  
+
   # raise this error if no secret key is passed
   unless !@secret_key.nil?
     raise FlutterwaveBadKeyError, "No secret key supplied and couldn't find any in environment variables. Make sure to set secret key as an environment variable FLUTTERWAVE_SECRET_KEY"
@@ -94,11 +99,11 @@ class Flutterwave
 end
 
   #tracking activities
-  def flutterwave_tracking 
+  def flutterwave_tracking
     endpoint = "https://kgelfdz7mf.execute-api.us-east-1.amazonaws.com/staging/sendevent"
       public_key = @public_key
-          
-          
+
+
         payload = {
           "PBFPubKey" => public_key,
           "language" => "Ruby",
@@ -107,17 +112,17 @@ end
           "message" => "test is done"
           }
           data = payload.to_json
-  
+
           response = HTTParty.post(endpoint, {
             body: data,
             headers: {
               'Content-Type' => 'application/json'
             }
           })
-    
+
           unless (response.code == 200 || response.code == 201)
             raise RaveServerError.new(response), "HTTP Code #{response.code}: #{response.body}"
-          end 
+          end
           return response
     end
 

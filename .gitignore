@@ -13,6 +13,8 @@ Gemfile.lock
 /sample_code
 sample_code/
 sample_code
+.DS_Store
+
 
 # rspec failure tracking
 .rspec_status
@@ -43,4 +45,3 @@ flutterwave_sdk-0.1.0.gem
 .DS_Store
 lib/.DS_Store
 lib/flutterwave_sdk/.DS_Store
-
