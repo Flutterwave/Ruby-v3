@@ -26,11 +26,11 @@ spec.date        = '2020-05-10'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 2.1.4"
+  spec.add_development_dependency "bundler", ">= 2.4.19"
   #add dotenv
-  spec.add_development_dependency "dotenv", "~> 2.8.1"
+  spec.add_development_dependency "dotenv", ">= 2.8.1"
 
   # Dependencies
   spec.required_ruby_version = ">= 2.5.3"
-  spec.add_runtime_dependency 'httparty', '~> 0.16.3'
+  spec.add_runtime_dependency 'httparty', '>= 0.16.3'
 end

@@ -10,7 +10,6 @@ test_secret_key = ENV['TEST_SECRET_KEY']
 test_encryption_key = ENV['TEST_ENCRYPTION_KEY']
 
 payload = {
- "tx_ref" => "MC-" + + Date.today.to_s,
   "amount" => "100",
   "currency" => "TZS",
   "email" => "ifunanyaikemma@gmail.com",
