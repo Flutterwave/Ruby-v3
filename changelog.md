@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 | 2023-08-30
+Updated old dependencies
+
+### Added
+- [UPDATE] Dependencies
+
 ## [0.1.1] - 2023-07-20
 ### Added
 - Test suite for mobile money TZS transactions.
