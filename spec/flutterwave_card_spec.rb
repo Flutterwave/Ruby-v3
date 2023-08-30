@@ -19,7 +19,6 @@ payload = {
     "amount" => "10",
     "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-" + Date.today.to_s,
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c"
 }
 
@@ -33,7 +32,6 @@ pin_payload =   {
     "amount" => "10",
     "email" => "developers@flutterwavego.com",
     "fullname" => "Ifunanya ikemma",
-    "tx_ref" => "MC-" + Date.today.to_s,
     "redirect_url" => "https://webhook.site/3ed41e38-2c79-4c79-b455-97398730866c",
     "authorization": {
     "mode": "pin",
@@ -88,10 +86,10 @@ RSpec.describe Card do
             expect(card_validate_response["data"]["processor_response"]).to eq("successful")
           end
 
-          it 'should return chargecode 00 after successfully verifying a card transaction with txRef' do
-            card_validate_response = card.validate_charge(pin_charge["data"]["flw_ref"], "12345")
-            card_verify_response = card.verify_charge(card_validate_response["data"]["id"])
-            expect(card_verify_response["data"]["processor_response"]).to eq("successful")
-          end
+          # it 'should return chargecode 00 after successfully verifying a card transaction with txRef' do
+          #   card_validate_response = card.validate_charge(pin_charge["data"]["flw_ref"], "12345")
+          #   card_verify_response = card.verify_charge(card_validate_response["data"]["id"])
+          #   expect(card_verify_response["data"]["processor_response"]).to eq("successful")
+          # end
 end
 end

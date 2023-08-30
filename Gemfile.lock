@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     flutterwave_sdk (0.1.1)
-      httparty (~> 0.16.3)
+      httparty (>= 0.16.3)
 
 GEM
   remote: https://rubygems.org/
@@ -35,11 +35,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.1.4)
-  dotenv (~> 2.8.1)
+  bundler (>= 2.4.19)
+  dotenv (>= 2.8.1)
   flutterwave_sdk!
   rake (~> 12.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
-   2.1.4
+   2.4.19
