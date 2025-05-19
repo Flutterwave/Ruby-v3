@@ -6,16 +6,16 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Flutterwave Developers"]
   spec.email         = ["developers@flutterwavego.com"]
 
-spec.date        = '2020-05-10'
+  spec.date        = '2020-05-10'
   spec.summary       = %q{Official Ruby Gem For Flutterwave APIs.}
   spec.description   = %q{This is the official Ruby Gem For Flutterwave Payments which includes Card, Account, Transfer, Subaccount, Subscription, Mpesa, Ghana Mobile Money, Ussd, Payment Plans, and Transfer payment methods.}
-  spec.homepage      = "https://github.com/Flutterwave/Flutterwave-Ruby-v3."
+  spec.homepage      = "https://github.com/Flutterwave/Flutterwave-Ruby-v3"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["homepage_uri"] = "https://developer.flutterwave.com"
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "https://github.com/Flutterwave/Flutterwave-Ruby-v3/blob/master/changelog.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
