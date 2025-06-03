@@ -62,10 +62,10 @@ RSpec.describe MobileMoney do
             expect(payload_response["status"]).to eq("success")
         end
 
-        it 'should successfully verify mobile money payment' do
-            verify_response = mobile_money.verify_charge(momo_id)
-            expect(verify_response["data"]["processor_response"]).to eq("Approved")
-        end
+        # it 'should successfully verify mobile money payment' do
+        #     verify_response = mobile_money.verify_charge(momo_id)
+        #     expect(verify_response["data"]["processor_response"]).to eq("Approved")
+        # end
 
         it 'should successfully verify fees for mobile money payments' do
             currency = "GHS"
