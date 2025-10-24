@@ -4,8 +4,7 @@
 
 # Flutterwave v3 Ruby Library
 
-This is a Ruby gem for easy integration of Flutterwave V3 API for various applications written in Ruby language from [Flutterwave](https://rave.flutterwave.com/). See [Here](https://developer.flutterwave.com/reference) for Flutterwave V3 API Docs.
-
+This Ruby gem enables straightforward integration with the Flutterwave V3 API for various applications written in Ruby. Visit the [Flutterwave website](https://app.flutterwave.com/login) for more information, and refer to the [Flutterwave V3 API documentation](https://developer.flutterwave.com/v3.0.0/reference/introduction-1) for detailed guidelines.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -25,16 +24,16 @@ Or install it yourself as:
 ## Usage
 
 ## Instantiate Flutterwave Object
-To use [Flutterwave Ruby SDK](https://ravesandbox.flutterwave.com), you need to instantiate the RaveRuby class with your [API](https://dashboard.flutterwave.com/dashboard/settings/apis) keys which are your public, secret and encryption keys. We recommend that you store your API keys in your environment variable named `FLUTTERWAVE_PUBLIC_KEY`, `FLUTTERWAVE_SECRET_KEY` and `FLUTTERWAVE_ENCRYPTION_KEY`. Instantiating your flutterwave object after adding your API keys in your environment is as illustrated below:
+To use Flutterwave Ruby SDK, you need to instantiate the RaveRuby class with your [API](https://app.flutterwave.com/login) keys, which are your public, secret, and encryption keys. We recommend that you store your API keys in your environment variable named `FLUTTERWAVE_PUBLIC_KEY`, `FLUTTERWAVE_SECRET_KEY`, and `FLUTTERWAVE_ENCRYPTION_KEY`. Instantiating your Flutterwave object after adding your API keys in your environment is as illustrated below:
 
 ```ruby
 payment = Flutterwave.new
 ```
-This throws a `FLUTTERWAVEBadKeyError` if no key is found in the environment variable or invalid public or secret key is found.
+This throws a `FLUTTERWAVEBadKeyError` if no key is found in the environment variable or an invalid public or secret key is found.
 
 #### Instantiate FLutterwave object in sandbox without environment variable:
 
-You can instantiate your Flutterwave object by setting your public, secret and encryption keys by passing them as an argument of the `Flutterwave` class just as displayed below: 
+You can instantiate your Flutterwave object by setting your public, secret, and encryption keys by passing them as arguments of the `Flutterwave` class, just as displayed below: 
 
 ```ruby
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxx-X", "FLWSECK-xxxxxxxxx-X", "xxxxxxxxxxx")
@@ -78,11 +77,11 @@ Payment = Flutterwave.new("YOUR_FLUTTERWAVE_LIVE_PUBLIC_KEY", "YOUR_FLUTTERWAVE_
 >  <mark>NB - Flutterwave's direct card charge endpoint requires PCI-DSS compliance </mark>
 
 > To charge cards, you will need to be PCI DSS compliant. If you are, you can proceed to charge cards.
-Alternatively, you can use any of our other payment methods such as Standard, Inline or SDKs which do not require processing card details directly and do not also require payload encryption.
+Alternatively, you can use any of our other payment methods, such as Standard, Inline, or SDKs, which do not require processing card details directly and do not require payload encryption.
 
 
-To perform account transactions, instantiate the card object and pass Flutterwave object as its argument.
-#### Its functions includes:
+To perform account transactions, instantiate the card object and pass the Flutterwave object as its argument.
+#### Its functions include:
 
 - .initiate_charge
 - .validate_charge
@@ -94,10 +93,10 @@ To perform account transactions, instantiate the card object and pass Flutterwav
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxx-X", "FLWSECK-xxxxxxxxx-X", "xxxxxxxxxxxxxxxxxxxxxxx")
 
-# This is used to perform card charge
+# This is used to perform a card charge
 
 payload = {
 
@@ -138,7 +137,7 @@ if response["meta"]["authorization"]["mode"]
         print response
     end
 else
-    # You can handle the get the auth url from this response and load it for the customer to complete the transaction if an auth url is returned in the response.
+    # You can handle getting the auth URL from this response and load it for the customer to complete the transaction if an auth URL is returned in the response.
     print response
 end
 
@@ -149,7 +148,7 @@ print response
 ```
 
 ## AccountPayment.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .initiate_charge
 - .validate_charge
@@ -160,7 +159,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxx-X", "FLWSECK-xxxxxxx-X", "xxxxxxx")
 
 payload = {
@@ -197,7 +196,7 @@ print response
 
 
 ## Bank.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .get_all_banks
 - .get_bank_branch
@@ -208,7 +207,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxx-X", "FLWSECK-xxxxxxxxxx-X", "xxxxxxxxx")
 bank = Bank.new(payment)
 
@@ -223,7 +222,7 @@ response = bank.get_bank_branch(280)
 ```
 
 ## Bills.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_bill_payment
 - .create_bulk_bill_payments
@@ -242,7 +241,7 @@ response = bank.get_bank_branch(280)
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK_TEST-3xxxxxxxxxx-X", "FLWSECK_TEST-xxxxxxxxx-X", "xxxxxxxxxxxxx")
 bill = Bills.new(payment)
 
@@ -298,7 +297,7 @@ print response
 ```
 
 ## BankTransfer.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .initiate_charge
 - .verify_charge
@@ -309,7 +308,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a FLutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxx-X", "FLWSECK-xxxxxxxxx-X", "xxxxxxxxxxx")
 
 payload = {
@@ -337,7 +336,7 @@ print response
 ```
 
 ## Beneficiaries.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_beneficiary
 - .list_beneficiaries
@@ -349,7 +348,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxx-X", "FLWSECK-xxxxxxxx-X", "xxxxxxxxxx")
 Beneficiary = Beneficiaries.new(payment)
 
@@ -381,7 +380,7 @@ print response
 ```
 
 ## USSD.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .initiate_charge
 - .verify_charge
@@ -392,7 +391,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxx-X", "FLWSECK-xxxxxxx-X", "xxxxxx")
 
 payload = {
@@ -412,14 +411,14 @@ response = ussd.initiate_charge(payload)
 print response
 
 
-# verify transactioin with the id
+# verify transaction with the id
 response = ussd.verify_charge(283516336)
 print response
 
 ```
 
 ## Transfer.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .transfer_fee
 - .initiate_transfer
@@ -434,7 +433,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK-xxxxxxx-X", "FLWSECK-xxxxxxx-X", "xxxxxxxxx")
 
 transfer = Transfer.new(payment)
@@ -470,7 +469,7 @@ print response
 ```
 
 ## VirtualCard.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_virtual_card
 - .get_all_virtual_cards
@@ -488,7 +487,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK_TEST-xxxxxxxx-X", "FLWSECK_TEST-xxxxxx-X", "xxxxxxxxx")
 virtual_card = VirtualCard.new(payment)
 
@@ -558,7 +557,7 @@ print response
 ```
 
 ## TokenizedCharge.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .tokenized_charge
 - .verify_tokenized_charge
@@ -572,10 +571,10 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxxx-X", "FLWSECK-xxxxxxxxxx-X", "xxxxxxxxxxxxx")
 
-# This is used to perform card charge
+# This is used to perform a card charge.
 payload = {
     "token" => "flw-t1nf-264db944ee46d0a2627573a496f5432c-m03k",
     "currency" => "NGN",
@@ -669,7 +668,7 @@ print response
 ```
 
 ## Settlements.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .get_settlements
 - .get_settlement
@@ -679,7 +678,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK_TEST-xxxxxxxxx-X", "FLWSECK_TEST-xxxxxxxxxx-X", "xxxxxxxxxxxxx")
 settlement = Settlements.new(payment)
 
@@ -696,7 +695,7 @@ print response
 ```
 
 ## QR.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .initiate_charge
 - .verify_charge
@@ -707,7 +706,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a FLutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxx-X", "FLWSECK-xxxxxxxxxxxxxxx-X", "xxxxxxxxxxxxxxxx")
 
 payload = {
@@ -732,7 +731,7 @@ print response
 ```
 
 ## Transactions.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .transaction_fee
 - .get_transactions
@@ -747,7 +746,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxx-X", "FLWSECK-xxxxxxxxxxxxxxxxxx-X", "xxxxxxxxxxxxxxx")
 
 fee = Transactions.new(payment)
@@ -787,7 +786,7 @@ print response
 ```
 
 ## VirtualAccountNumber.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_virtual_account_number
 - .create_bulk_virtual_account_number
@@ -800,7 +799,7 @@ print response
 
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK_TEST-xxxxxxxx-X", "FLWSECK_TEST-xxxxxxxxxx-X", "xxxxxxxxx")
 account_number = VirtualAccountNumber.new(payment)
 
@@ -841,7 +840,7 @@ print response
 ```
 
 ## Subscriptions.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .get_all_subscriptions
 - .cancel_subscription
@@ -852,7 +851,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxx-X", "FLWSECK-xxxxxxxxxx-X", "xxxxxxxxxxx")
 subscription = Subscriptions.new(payment)
 
@@ -864,14 +863,14 @@ print response
 response = subscription.cancel_subscription(247490)
 print response
 
-#activate subcription
+#activate subscription
 response = subscription.activate_subscription(247490)
 print response
 
 ```
 
 ## OTP.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_otp
 - .validate_otp
@@ -881,7 +880,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys.
 payment = Flutterwave.new("FLWPUBK_TEST-xxxxxxxxxxxxxx-X", "FLWSECK_TEST-xxxxxxxxxxxx-X", "xxxxxxxxx")
 otp = OTP.new(payment)
 
@@ -922,7 +921,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK_TEST-xxxxxxxx-X", "FLWSECK_TEST-xxxxxxxx-X", "xxxxxx")
 subaccount = Subaccount.new(payment)
 
@@ -969,7 +968,7 @@ print reponse
 ```
 
 ## PaymentPlan.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .create_payment_plan
 - .get_payment_plans
@@ -982,7 +981,7 @@ print reponse
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxx-X", "FLWSECK-xxxxxxxxxx-X", "xxxxxxxxxxxxx")
 payment_plan = PaymentPlan.new(payment)
 
@@ -1022,7 +1021,7 @@ print response
 ```
 
 ## MobileMoney.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .initiate_charge
 - .verify_charge
@@ -1032,7 +1031,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxxxxxxx-X", "FLWSECK-xxxxxxxxxxxx-X", "xxxxxxxxxx")
 
 # This is used to perform Mpesa transaction
@@ -1125,7 +1124,7 @@ response = charge_rwanda.verify_charge(response["data"]["tx_ref"])
 print response
 
 
-#uganda test
+# Uganda test
 
 payload = {
     "tx_ref" => "MC-1585230950500",
@@ -1168,7 +1167,7 @@ print response
 ```
 
 ## Misc.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 _ .get_all_wallet_balance
 - .get_balance_per_currency
@@ -1181,7 +1180,7 @@ _ .get_all_wallet_balance
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxxx-X", "FLWSECK-xxxxx-X", "xxxxxxxxxxxxxxx")
 misc = Misc.new(payment)
 
@@ -1215,7 +1214,7 @@ print response
 ```
 
 ## Preauth.new(payment)
-#### Its functions includes:
+#### Its functions include:
 
 - .capture_preauth
 - .void_preauth
@@ -1226,7 +1225,7 @@ print response
 ```ruby
 require './flutterwave_sdk'
 
-# This is a Flutterwave object which is expecting public, secret and encrption keys
+# This is a Flutterwave object which is expecting public, secret, and encryption keys
 payment = Flutterwave.new("FLWPUBK-xxxxxxxxx-X", "xxxxxxxxxxxxxx", "xxxxxxxxxxxxxx")
 
 # This is used to perform preauth capture
@@ -1279,4 +1278,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the FlutterwaveSdk project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Iphytech/flutterwave_sdk/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the FlutterwaveSdk project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [code of conduct](https://github.com/Iphytech/flutterwave_sdk/blob/master/CODE_OF_CONDUCT.md).
